@@ -23,9 +23,10 @@
 
 
 # Reserved Symbolic Operators
-
-
-
+1. + - * / %
+2. == != < <= > >=
+3. &&  ||  ! 
+4. =
 
 
 # Sample Programs
