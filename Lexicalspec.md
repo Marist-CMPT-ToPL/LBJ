@@ -1,9 +1,8 @@
 # Grammar
 1. BOOLEAN ::= ["true", "false", "nil"]
 2. NUMBERS ::= [0-9]
-3. LETTERS ::= [a-z, ]
-
-
+3. LETTERS ::= [a-z, A-Z] 
+4. WHITESPACE ::= ["\t", "\n"]
 
 # Rules For Identifiers
 
