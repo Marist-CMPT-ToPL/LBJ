@@ -7,7 +7,6 @@
 # Rules For Identifiers
 6. Identifiers are case-sensitive
 7. Idenitifiers that match a keyword must be tokenized
-8. 
 
 
 
