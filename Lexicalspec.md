@@ -15,20 +15,14 @@
 12. char_literal -> "''"
 13. boolean_literal -> "true", "false"
 14. nil_literal -> "nil"
-
-
 # Reserved Keywords
 15. Reserved Keywords -> "if"|"for"|"else"|"else if"|"return"|"while"| 
-"true"|"false"|"nil"|"or"|"function"|"let"|"constant"|"variable"|"enum"|
-
-
-
-
-
+"true"|"false"|"nil"|"or"|"function"|"let"|"constant"|"variable"|"enum"|"and"|
+"not"
 # Reserved Symbolic Operators
-
-
-
-
-
+16. Arithmetic -> "+" | "-" | "*" | "/" | "%"
+17. Comparison -> "==" |  "!=" | "<" | ">" | "<=" | ">="
+18. Logial -> "&&" | "||" | "!"
+19. Assignment -> "="
+20. Other -> "." | "," | ";" | ":"
 # Sample Programs
