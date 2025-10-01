@@ -31,3 +31,4 @@ Assignment:   =
 Other:        .  ,  ;
 
 # Sample Programs
+git config pull.rebase false  # merge
