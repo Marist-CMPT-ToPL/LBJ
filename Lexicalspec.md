@@ -18,6 +18,8 @@
 
 
 # Reserved Keywords
+15. Reserved Keywords -> "if"|"for"|"else"|"else if"|"return"|"while"| 
+"true"|"false"|"nil"|"or"|"function"|"let"|"constant"|"variable"|"enum"|
 
 
 
