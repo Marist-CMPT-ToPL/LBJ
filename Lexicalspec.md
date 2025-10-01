@@ -24,9 +24,10 @@
 
 
 # Reserved Symbolic Operators
-
-
-
-
+Arithmetic:   +  -  *  /  %
+Comparison:   ==  !=  <  <=  >  >=
+Logical:      &&  ||  !
+Assignment:   =
+Other:        .  ,  ;
 
 # Sample Programs
