@@ -16,3 +16,21 @@ public enum TokenType {
     IF, FOR, ELSE, RETURN, WHILE, TRUE, FALSE, NIL, OR, FUNCTION,
     LET, CONSTANT, VARIABLE, ENUM, AND, NOT, EOF, ERROR
 }
+
+class Token {
+    final TokenType type;
+    final String lexeme;
+    final Object literal;
+    final int line;
+
+    Token(TokenType type, String lexeme, Object literal, int line) {
+        this.type = type;
+        this.lexeme = lexeme;
+        this.literal = literal;
+        this.line = line;
+    }
+
+    public String toString() {
+        return String.format("[%d] %s %s %s", type, line, lexeme, literal == null? "" : literal);
+    }
+}
