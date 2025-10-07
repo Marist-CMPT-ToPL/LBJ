@@ -125,3 +125,43 @@ private void charLiteral() {
         }
     }
 }
+private boolean match(char expected) {
+    if (isAtEnd()) return false;
+    if (source.charAt(current) != expected) return false;
+    current++;
+    return true;
+}
+private char peek() {
+    if (isAtEnd()) return '\0';
+    return source.charAt(current);
+}
+private char peekNext() {
+    if (current + 1 >= source.length()) return '\0';
+    return source.charAt(current + 1);
+}
+private boolean isLetter(char c) {
+    return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || c == '_';
+}
+private boolean isDigit(char c) {
+    return c >= '0' && c <= '9';
+}
+private boolean isLetterOrDigit(char c) {
+    return isLetter(c) || isDigit(c);
+}
+private boolean isAtEnd() {
+    return current >= source.length();
+}
+private char advance() {
+    return source.charAt(current++);
+}
+private void addToken(TokenType type) {
+    addToken(type, null);
+}
+private void addToken(TokenType type, Object literal) {
+    String text = source.substring(start, current);
+    tokens.add(new Token(type, text, literal, line));
+}
+private void errorToken(String message) {
+    String lexeme = source.substring(start, current);
+    tokens.add(new Token(TokenType.ERROR, lexeme, message, line));
+}
