@@ -26,4 +26,13 @@ public class Scanner {
 public Scanner(String source) {
         this.source = source;
     }
+
+public List<Token> scanTokens() {
+        while (!isAtEnd()) {
+            start = current;
+            scanTokens();
+        }
+        tokens.add(new Token(TokenType.EOF, "", null, line));
+        return tokens;
+    }
 }
