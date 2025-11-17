@@ -3,9 +3,10 @@ package com.craftinginterpreters.lox;
 
 import java.util.List;
 
-interface LoxCallable {
+interface LBJCallable {
 //> callable-arity
   int arity();
 //< callable-arity
   Object call(Interpreter interpreter, List<Object> arguments);
+
 }
