@@ -3,7 +3,7 @@ package com.craftinginterpreters.lox;
 
 import java.util.List;
 
-class LoxFunction implements LoxCallable {
+class LBJFunction implements LBJCallable {
   private final Stmt.Function declaration;
 //> closure-field
   private final Environment closure;
@@ -18,7 +18,7 @@ class LoxFunction implements LoxCallable {
 //> Classes is-initializer-field
   private final boolean isInitializer;
 
-  LoxFunction(Stmt.Function declaration, Environment closure,
+  LBJFunction(Stmt.Function declaration, Environment closure,
               boolean isInitializer) {
     this.isInitializer = isInitializer;
 //< Classes is-initializer-field
@@ -28,14 +28,14 @@ class LoxFunction implements LoxCallable {
     this.declaration = declaration;
   }
 //> Classes bind-instance
-  LoxFunction bind(LoxInstance instance) {
+  LBJFunction bind(LoxInstance instance) {
     Environment environment = new Environment(closure);
     environment.define("this", instance);
 /* Classes bind-instance < Classes lox-function-bind-with-initializer
     return new LoxFunction(declaration, environment);
 */
 //> lox-function-bind-with-initializer
-    return new LoxFunction(declaration, environment,
+    return new LBJFunction(declaration, environment,
                            isInitializer);
 //< lox-function-bind-with-initializer
   }
@@ -88,4 +88,5 @@ class LoxFunction implements LoxCallable {
     return null;
   }
 //< function-call
+
 }
