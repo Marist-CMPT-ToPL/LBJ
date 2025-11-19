@@ -1,7 +1,7 @@
 # Program 
 1. program -> [declaration]
 # Declarations
-2. var_decl -> ["let" | "constant" | "variable"] identifier [":" type_annotation] "=" ";"
+2. var_decl -> ["let" | "constant" | "variable"] identifier [":" type_annotation] ["=" expression] ";"
 3. func_decl -> "function" identifier "("list")"
 4. struct_decl -> "struct" identifier "{" [ ":" expression] "," "}"
 5. enum_decl -> "enum" identifier "{" identifier ["=" expression] "," "}"
@@ -18,8 +18,8 @@
 15. factor -> unary "*" | "/" | "%" assignment 
 16. unary -> "!" | "-" assigment 
 17. call -> primary ["(" arg_list ")" ] | "[" expression "]" "." identifier
-18. arg_list -> expression "," expression
-19. primary -> literal | identifier | "(" expression ")" lambda
+18. arg_list -> expression ( "," expression )*
+19. primary -> identifier | "(" expression ")" lambda
 20. lambda -> [identifier] "=>" expression
 21. literal -> number_literal | string_literal | char_literal | boolean_literal | nil_literal
 # Statements
