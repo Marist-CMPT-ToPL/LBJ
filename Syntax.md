@@ -22,8 +22,8 @@
 19. primary -> identifier | "(" expression ")" lambda
 20. lambda -> [identifier] "=>" expression
 21. literal -> number_literal | string_literal | char_literal | boolean_literal | nil_literal
-22. newArray -> expression "[" expression "," expression* "]"
-23. length -> 
+22. newArray -> "[" expression ( "," expression) * "]" | "[" "]"
+23. len -> expression
 # Statements
 22. statement -> expr_stmt | if_stmt | while_stmt | for_stmt | retrun_stmt | block | break_stmt | continue_stmt
 23. expr_stmt -> expression ";"
