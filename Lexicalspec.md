@@ -28,7 +28,9 @@
 21. Other -> "." | "," | ";" | ":" | "(" | ")" | "{" | "}"
 # Sample Programs
 22. Sample 1 --- 
-23. 
-24. 
-25. 
+23. var x = 10;
+24. var y = 20;
+25. var z = x * y + 5;
+26. print z;
+
 
