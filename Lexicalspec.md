@@ -32,5 +32,36 @@
 24. var y = 20;
 25. var z = x * y + 5;
 26. print z;
+27. Sample 2 ---
+28. fun add(a, b) {
+29. return a + b;
+30. }
+31. fun main() {
+32.    var result = add(5, 7);
+33.   print result;
+34. }
+35. Sample 3 ---
+36. var score = 87;
+37. if (score > 90) {
+38.    print "A";
+39. } else if (score > 80) {
+40.    print "B";
+41. } else {
+42.    print "C";
+43. }
+44. Sample 4 ---
+45. var i = 0;
+46. while (i < 5) {
+47.    print i;
+48.    i = i + 1;
+49. }
+50. Sample 5 ---
+51. for (var i = 0; i < 3; i = i + 1) {
+52.   print i;
+53. }
+
+
+
+
 
 
