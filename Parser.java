@@ -99,7 +99,7 @@ public static class Index extends Expr {
 }
 
 public static class Lambda extends Expr {
-    public final Token param; // allow single param or null
+    public final Token param; 
     public final Expr body;
     public Lambda(Token param, Expr body) {
         this.param = param;
@@ -109,5 +109,121 @@ public static class Lambda extends Expr {
         return "(lambda " + (param == null ? "_" : param.lexeme) + " => " + body + ")";
     }
 }
+
+public static class ExprStmt extends Stmt {
+    public final Expr expression;
+    public ExprStmt(Expr expression) { 
+        this.expression = expression; 
+    }
+    public String toString() { 
+        return expression.toString();
+     }
+}
+
+public static class VarStmt extends Stmt {
+    public final Token name;
+    public final Expr initializer;
+    public final Token kind; 
+    public VarStmt(Token kind, Token name, Expr initializer) { 
+        this.kind = kind; 
+        this.name = name; 
+        this.initializer = initializer; 
+    }
+    public String toString() { 
+        return "(var " + name.lexeme + " = " + (initializer == null ? "nil" : initializer) + ")"; 
+    }
+}
+
+public static class FunctionStmt extends Stmt {
+    public final Token name;
+    public final List<Token> params;
+    public final List<Stmt> body;
+    public FunctionStmt(Token name, List<Token> params, List<Stmt> body) { 
+        this.name = name; 
+        this.params = params; 
+        this.body = body; 
+    }
+    public String toString() { 
+        return "(fun " + name.lexeme + " params=" + params + " body=" + body + ")"; 
+    }
+}
+
+
+public static class StructStmt extends Stmt {
+    public final Token name;
+    public final List<Token> fields;
+    public StructStmt(Token name, List<Token> fields) { 
+        this.name = name; 
+        this.fields = fields; 
+    }
+    public String toString() { 
+        return "(struct " + name.lexeme + " fields=" + fields + ")"; 
+    }
+}
+
+public static class EnumStmt extends Stmt {
+    public final Token name; 
+    public final List<Token> members;
+    public EnumStmt(Token name, List<Token> members) { 
+        this.name = name; 
+        this.members = members; 
+    }
+    public String toString() { 
+        return "(enum " + name.lexeme + " members=" + members + ")"; 
+    }
+}
+
+public static class BlockStmt extends Stmt {
+    public final List<Stmt> statements;
+    public BlockStmt(List<Stmt> statements) { 
+        this.statements = statements; 
+    }
+    public String toString() { 
+        return "(block " + statements + ")"; 
+    }
+}
+
+
+public static class IfStmt extends Stmt {
+    public final Expr condition; 
+    public final Stmt thenBranch; 
+    public final Stmt elseBranch;
+    public IfStmt(Expr condition, Stmt thenBranch, Stmt elseBranch) { 
+        this.condition = condition; this.thenBranch = thenBranch; this.elseBranch = elseBranch; 
+    }
+    public String toString() { 
+        return "(if " + condition + " then " + thenBranch + " else " + elseBranch + ")"; 
+    }
+}
+
+
+public static class WhileStmt extends Stmt {
+    public final Expr condition; 
+    public final Stmt body; 
+    public WhileStmt(Expr condition, Stmt body) { 
+        this.condition = condition; 
+        this.body = body; 
+    }
+    public String toString() { 
+        return "(while " + condition + " " + body + ")"; 
+    }
+}
+
+
+public static class ForStmt extends Stmt {
+    public final Stmt initializer; 
+    public final Expr condition; 
+    public final Expr increment; 
+    public final Stmt body;
+
+public static class ContinueStmt extends Stmt { 
+    public final Token keyword; 
+    public ContinueStmt(Token kw) { this.keyword = kw; } 
+    public String toString() { 
+        return "(continue)"; 
+    }
+  }
+} 
+
 
 
