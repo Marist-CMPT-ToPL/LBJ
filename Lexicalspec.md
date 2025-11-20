@@ -27,3 +27,8 @@
 20. Assignment -> "="
 21. Other -> "." | "," | ";" | ":" | "(" | ")" | "{" | "}"
 # Sample Programs
+22. Sample 1 --- 
+23. 
+24. 
+25. 
+

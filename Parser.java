@@ -53,7 +53,8 @@ public static class Assign extends Expr {
     public final Token name;
     public final Expr value;
     public Assign(Token name, Expr value) { 
-        this.name = name; this.value = value; 
+        this.name = name; 
+        this.value = value; 
     }
     public String toString() {
         return "(assign " + name.lexeme + " " + value + ")";
@@ -189,7 +190,9 @@ public static class IfStmt extends Stmt {
     public final Stmt thenBranch; 
     public final Stmt elseBranch;
     public IfStmt(Expr condition, Stmt thenBranch, Stmt elseBranch) { 
-        this.condition = condition; this.thenBranch = thenBranch; this.elseBranch = elseBranch; 
+        this.condition = condition; 
+        this.thenBranch = thenBranch; 
+        this.elseBranch = elseBranch; 
     }
     public String toString() { 
         return "(if " + condition + " then " + thenBranch + " else " + elseBranch + ")"; 
