@@ -36,3 +36,70 @@ public List<Token> scanTokens() {
         return tokens;
     }
 }
+
+public class ScannerTest {
+
+    private static final String[] SAMPLE_PROGRAMS = {
+        // Program 1: Variables & Expressions
+        """
+        var x = 10;
+        var y = 20;
+        var z = x * y + 5;
+        print z;
+        """,
+
+        // Program 2: Functions & Return
+        """
+        fun add(a, b) {
+            return a + b;
+        }
+        fun main() {
+            var result = add(5, 7);
+            print result;
+        }
+        """,
+
+        // Program 3: If / Else
+        """
+        var score = 87;
+        if (score > 90) {
+            print "A";
+        } else if (score > 80) {
+            print "B";
+        } else {
+            print "C";
+        }
+        """,
+
+        // Program 4: While loop
+        """
+        var i = 0;
+        while (i < 5) {
+            print i;
+            i = i + 1;
+        }
+        """,
+
+        // Program 5: For loop
+        """
+        for (var i = 0; i < 3; i = i + 1) {
+            print i;
+        }
+        """
+    };
+
+    public static void main(String[] args) {
+        for (int i = 0; i < SAMPLE_PROGRAMS.length; i++) {
+            System.out.println("=== SCANNER TEST " + (i + 1) + " ===");
+
+            Scanner scanner = new Scanner(SAMPLE_PROGRAMS[i]);
+            List<Token> tokens = scanner.scanTokens();
+
+            for (Token t : tokens) {
+                System.out.println(t);
+            }
+
+            System.out.println();
+        }
+    }
+}

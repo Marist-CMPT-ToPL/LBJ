@@ -3,7 +3,7 @@ import java.util.*;
 public enum TokenType {
     //Single-character tokens.
     LEFT_PAREN, RIGHT_PAREN, LEFT_BRACE, RIGHT_BRACE, COMMA, DOT, 
-    SEMICOLON, STAR, COLON, LEFT_BRACKET, RIGHT_BRACKET
+    SEMICOLON, COLON, LEFT_BRACKET, RIGHT_BRACKET,
 
     //Operators
     MINUS, PLUS, SLASH, PERCENT, BANG, BANG_EQUAL, STAR, EQUAL,

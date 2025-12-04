@@ -39,7 +39,43 @@ private static void runPrompt() throws IOException {
       hadError = false;
     }
 }
-  private static void run(String source) {
+
+private static void run(String source) {
     Scanner scanner = new Scanner(source);
     List<Token> tokens = scanner.scanToken();
   }
+
+Parser parser = new Parser(tokens);
+
+List<Stmt> statements = parser.parse();
+
+    if (hadError) return;
+
+    Resolver resolver = new Resolver(interpreter);
+    resolver.resolve(statements);
+
+    if (hadError) return;
+
+    interpreter.interpret(statements);
+
+static void error(int line, String message) {
+    report(line, "", message);
+  }
+
+private static void report(int line, String where, String message) {
+    System.err.println(
+        "[line " + line + "] Error" + where + ": " + message);
+    hadError = true;
+  }
+  static void error(Token token, String message) {
+    if (token.type == TokenType.EOF) {
+      report(token.line, " at end", message);
+    } else {
+      report(token.line, " at '" + token.lexeme + "'", message);
+    }
+  }
+  static void runtimeError(RuntimeError error) {
+    System.err.println(error.getMessage() +
+        "\n[line " + error.token.line + "]");
+    hadRuntimeError = true;
+}
